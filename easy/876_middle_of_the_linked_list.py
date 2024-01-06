@@ -1,5 +1,5 @@
-from typing import Optional
 import pytest
+from typing import Optional
 
 
 class ListNode:
