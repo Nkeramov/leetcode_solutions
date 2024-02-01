@@ -15,7 +15,8 @@ class Solution:
         return True
 
 
-@pytest.mark.parametrize("input_value, expected_value", [(121, True), (-121, False), (10, False), (11, True)])
+@pytest.mark.parametrize("input_value, expected_value", [(121, True), (-121, False), (10, False), (11, True),
+                                                         (0, True)])
 def test_problem(input_value, expected_value):
     solution = Solution()
     ans = solution.solve(input_value)
