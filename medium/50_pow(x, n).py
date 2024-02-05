@@ -3,17 +3,19 @@ import pytest
 
 class Solution:
     def solve(self, x: float, n: int) -> float:
-        return self.pow(x, n) if n >= 0 else 1.0 / self.pow(x, -n)
-
-    def pow(self, x: float, n: int) -> float:
         if n == 0:
-            return 1.0
+            return 1
         if x == 0:
-            return 0.0
+            return 0
+        if n < 0:
+            x = 1.0 / x
+            n = -n
+        p = self.solve(x, n // 2)
+        p = p * p
         if n % 2 == 0:
-            return self.pow(x * x, n // 2)
+            return p
         else:
-            return x * self.pow(x * x, (n - 1) // 2)
+            return p * x
 
 
 @pytest.mark.parametrize("x, n, expected_value", [
