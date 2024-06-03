@@ -18,7 +18,7 @@ class Solution:
         return ans
 
 
-@pytest.mark.parametrize("ransom_note, magazine, expected_value", [
+@pytest.mark.parametrize("nums, k, expected_value", [
     ([1, 3, -1, -3, 5, 3, 6, 7], 3, [3, 3, 5, 5, 6, 7]),
     ([1], 1, [1])
 ])
