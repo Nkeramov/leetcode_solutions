@@ -12,7 +12,7 @@ class Solution:
             if s[j] not in seen:
                 seen.add(s[j])
                 j += 1
-                ans = max(ans,j - i)
+                ans = max(ans, j - i)
             else:
                 while s[i] != s[j]:
                     seen.remove(s[i])
@@ -22,10 +22,16 @@ class Solution:
         return ans
 
 
-@pytest.mark.parametrize("input_value, expected_value", [
-    ("abcabcbb", 3), ("bbbbb", 1), ("pwwkew", 3)
+@pytest.mark.parametrize("s, expected_value", [
+    ("abcabcbb", 3),
+    ("bbbbb", 1),
+    ("pwwkew", 3),
+    ("umvejcuuk", 6),
+    ("bpfbhmipx", 7),
+    (" ", 1),
+    ("", 0)
 ])
-def test_problem(input_value, expected_value):
+def test_problem(s, expected_value):
     solution = Solution()
-    ans = solution.solve(input_value)
+    ans = solution.solve(s)
     assert ans == expected_value
