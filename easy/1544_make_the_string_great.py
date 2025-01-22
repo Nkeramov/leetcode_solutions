@@ -4,19 +4,20 @@ from typing import List
 
 class Solution:
     def solve(self, s: str) -> str:
-        stack = []
-        for c in s:
-            if stack and abs(ord(c) - ord(stack[-1])) == 32:
-                stack.pop()
+        ans = ""
+        for i in range(len(s)):
+            if not ans or ans and abs(ord(s[i]) - ord(ans[-1])) != 32:
+                ans += s[i]
             else:
-                stack.append(c)
-        return ''.join(stack)
+                ans = ans[:-1]
+        return ans
 
 
 @pytest.mark.parametrize("input_list, expected_value", [
     ("leEeetcode", "leetcode"),
     ("abBAcC", ""),
-    ("s", "s")
+    ("s", "s"),
+    ("hHcOzoC", "cOzoC")
 ])
 def test_problem(input_list, expected_value):
     solution = Solution()
