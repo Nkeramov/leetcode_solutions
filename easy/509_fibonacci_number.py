@@ -8,7 +8,7 @@ class Solution:
         elif n <= 2:
             return 1
         else:
-            fib = [0]*(n+1)
+            fib = [0] * (n + 1)
             fib[:3] = [0, 1, 1]
             for i in range(3, n + 1):
                 fib[i] = fib[i - 1] + fib[i - 2]
@@ -16,7 +16,7 @@ class Solution:
 
 
 @pytest.mark.parametrize("n, expected_value", [
-    (2, 1), (3, 2), (4, 3), (5, 5), (6, 8), (7, 13)
+    (0, 0), (2, 1), (3, 2), (4, 3), (5, 5), (6, 8), (7, 13)
 ])
 def test_problem(n, expected_value):
     solution = Solution()
